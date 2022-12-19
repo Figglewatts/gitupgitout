@@ -1,0 +1,5 @@
+mirrors:
+  - source:
+      githubAccount:
+        account: figglewatts
+    cloneTo: ./repos
