@@ -17,7 +17,7 @@ jobs:
             goos: windows
     steps:
       - uses: actions/checkout@v2
-      - uses: wangyoucau577/go-release-action@v1.34
+      - uses: wangyoucao577/go-release-action@v1.34
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           goos: ${{ matrix.goos }}
@@ -58,6 +58,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: |
-            samgibson/gugo:latest
-            samgibson/gugo:${{ steps.get_release.outputs.tag_name }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
