@@ -16,4 +16,12 @@ COPY . .
 
 RUN CGO_ENABLED=0 go build -o /gugo cmd/gugo/main.go
 
+ARG USER=git
+ENV HOME /home/$USER
+
+# add new user
+RUN adduser -D $USER
+
+USER $USER
+
 ENTRYPOINT ["/gugo"]
