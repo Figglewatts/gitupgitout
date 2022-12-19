@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"path/filepath"
 
 	"github.com/figglewatts/gitupgitout/pkg/logging"
 )
@@ -19,6 +20,8 @@ func Mirror(
 	log.Verbose(
 		"cloning/fetching repo %s (%s) to %s", repoName, sshUrl, repoPath,
 	)
+
+	repoName = filepath.Base(repoName)
 
 	// see if the repo exists, as if it doesn't we'll need to clone it first
 	repoExists, err := repoExists(repoPath, repoName)
