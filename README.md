@@ -33,7 +33,7 @@ Usage of gugo:
 ```
 
 ### Docker
-```yaml
+```
 docker run samgibson/gugo --help
 ```
 
