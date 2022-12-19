@@ -20,10 +20,12 @@ type Mirror struct {
 }
 
 func (m Mirror) GetSource() source.RepoSource {
-	return firstNonNil(
-		m.Source.GitHubAccount,
-		m.Source.GitLabAccount,
-	).(source.RepoSource)
+	if m.Source.GitHubAccount != nil {
+		return m.Source.GitHubAccount
+	} else if m.Source.GitLabAccount != nil {
+		return m.Source.GitLabAccount
+	}
+	return nil
 }
 
 func (m Mirror) validate() error {

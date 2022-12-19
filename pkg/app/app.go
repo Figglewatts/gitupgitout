@@ -77,6 +77,8 @@ func (app App) runOnce(ctx context.Context) error {
 	wg.Add(len(app.conf.Mirrors))
 	mirrorErrors := make(chan error)
 	for i, mirror := range app.conf.Mirrors {
+		i := i
+		mirror := mirror
 		go app.processMirror(appCtx, i, mirror, mirrorErrors, &wg)
 	}
 

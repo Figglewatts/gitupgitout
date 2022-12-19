@@ -5,7 +5,8 @@ WORKDIR /app
 RUN apk add --no-cache \
     ca-certificates \
     git \
-    git-lfs
+    git-lfs \
+    openssh
 
 COPY go.mod ./
 COPY go.sum ./

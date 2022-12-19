@@ -3,3 +3,7 @@ mirrors:
       githubAccount:
         account: figglewatts
     cloneTo: ./repos
+  - source:
+      gitlabAccount:
+        account: figglewatts
+      cloneTo: ./repos
