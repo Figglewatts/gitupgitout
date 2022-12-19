@@ -6,7 +6,9 @@ RUN apk add --no-cache \
     ca-certificates \
     git \
     git-lfs \
-    openssh
+    openssh \
+    && \
+    git config --global --add safe.directory '*'
 
 COPY go.mod ./
 COPY go.sum ./
