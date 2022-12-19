@@ -15,4 +15,4 @@ COPY . .
 
 RUN CGO_ENABLED=0 go build -o gugo cmd/gugo/main.go
 
-ENTRYPOINT ["/gugo"]
+ENTRYPOINT ["gugo"]
