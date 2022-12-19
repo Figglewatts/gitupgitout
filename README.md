@@ -6,12 +6,12 @@ A program used to mirror Git-related things to a local filesystem.
 - Git
 - Git LFS
 
+### Conventional
 Install via:
 ```
 go install github.com/figglewatts/gitupgitout/cmd/gugo
 ```
-
-Or download a binary from the releases page.
+Or [download a binary](https://github.com/Figglewatts/gitupgitout/releases/latest) from the releases page.
 
 Afterwards, you can run the application like this:
 ```
@@ -30,6 +30,11 @@ Usage of gugo:
     	run anyway before first scheduled cron
   -verbose
     	enable verbose logging
+```
+
+### Docker
+```yaml
+docker run samgibson/gugo --help
 ```
 
 ## Config
