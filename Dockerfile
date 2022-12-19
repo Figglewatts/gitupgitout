@@ -1,9 +1,11 @@
-FROM golang:1.19-alpine AS build
+FROM golang:1.19-alpine
 
 WORKDIR /app
 
 RUN apk add --no-cache \
-    ca-certificates
+    ca-certificates \
+    git \
+    git-lfs
 
 COPY go.mod ./
 COPY go.sum ./
@@ -11,14 +13,6 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 go build -o /gugo cmd/gugo/main.go
-
-
-FROM scratch
-
-WORKDIR /
-
-COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=build /gugo /gugo
+RUN CGO_ENABLED=0 go build -o gugo cmd/gugo/main.go
 
 ENTRYPOINT ["/gugo"]
