@@ -34,7 +34,7 @@ Usage of gugo:
 
 ### Docker
 ```
-docker run samgibson/gugo --help
+docker run samgibson/gugo /gugo --help
 ```
 
 ## Config
